@@ -6,7 +6,7 @@ import './App.css';
 function App() {
   return (
     <main>
-      hello World.
+      hello world
     </main>
   );
 }
