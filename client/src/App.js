@@ -11,6 +11,7 @@ function App() {
   const [tickets, setTickets] = useState([]);
   const [searchText ,setSearchText] = useState('');
   const [countHiddenTickets, setCountHiddenTickets] = useState(0);
+  const [reset, setReset] = useState(0);
 
   useEffect(() => {
     const loadAllTickets = async () => {
@@ -30,7 +31,11 @@ function App() {
     search();
   }, [searchText]);
 
-  // const ticketsList = tickets.map((ticket) => <Ticket key={tickets} ticket={ticket} />);
+ 
+  function restore(){
+       setReset(reset+1)
+       setCountHiddenTickets(0);
+    }
     
   const counterHide = () => {
     setCountHiddenTickets(countHiddenTickets+1);
@@ -48,11 +53,13 @@ function App() {
         <div> {countHiddenTickets>0 && 
          <>
          <p id="hideTicketsCounter">{countHiddenTickets}</p>
+         {<button id="restoreHideTickets" onClick={restore}>Restore</button>}
          </>
         }
       </div>
       <SearchText searchText ={searchText} setSearchText={setSearchText} />
       {tickets.map((ticket,index) => 
+      <Ticket key={index} ticket={ticket} countHiddenTickets={countHiddenTickets} counterHide={counterHide} reset={reset} />
       )}
       
 

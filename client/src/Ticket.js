@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './ticket.css'
 
+function Ticket({counterHide , ticket, reset}) {
   
 const [classTicket,setClassTicket] = useState('ticket');
 
@@ -9,6 +10,9 @@ const [classTicket,setClassTicket] = useState('ticket');
 
   }
 
+  useEffect(()=>{
+    setClassTicket('ticket')
+  },[reset])
 
 
   function hideTicket (e) {
