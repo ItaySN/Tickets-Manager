@@ -1,6 +1,7 @@
 .header{
-    padding: 40px;
+    padding: 20px;
     text-align: center;
-    background: #4287f5;
+    background: rgb(28, 141, 113);
     color: white;
+    margin-bottom: 20px;
 }

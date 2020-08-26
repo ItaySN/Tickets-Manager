@@ -1,14 +1,42 @@
 .hidden-ticket{
     display: none;
 }
-.ticket{
-    display: inline-block;
-    padding: 16px;
-    text-align: center;
-    margin: 16px;
-    border: 1px solid black;
+.ticket {
+    justify-content: center;
+    border: 2px solid rgb(183, 180, 206);
+    border-radius: 35px;
+    margin: 5px 40px 20px 40px;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 8px 10px #888888;
 }
 .label{
-    display: flex;
-    justify-content: space-around;
+    margin: 5px;   
 }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 0.6fr 1.8fr 0.6fr;
+  grid-template-rows: 0.6fr 1fr 1.4fr 0.6fr;
+  gap: 1px 1px;
+  grid-template-areas: "ticketDate ticketTitle ticketTitle ticketTitle ticketTitle hideTicketButton" "ticketContent ticketContent ticketContent ticketContent ticketContent ticketContent" "ticketContent ticketContent ticketContent ticketContent ticketContent ticketContent" "ticketEmail ticketEmail ticketLables ticketLables isDoneText doneButton";
+}
+
+.ticketEmail { grid-area: ticketEmail; }
+
+.ticketDate { grid-area: ticketDate; }
+
+.ticketLables { grid-area: ticketLables; }
+
+.isDoneText { 
+    
+    grid-area: isDoneText; 
+}
+
+.doneButton { grid-area: doneButton; }
+
+.ticketTitle { grid-area: ticketTitle; }
+
+.hideTicketButton { grid-area: hideTicketButton; }
+
+.ticketContent { grid-area: ticketContent; }

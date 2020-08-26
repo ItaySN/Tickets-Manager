@@ -5,7 +5,7 @@ import './header.css'
 function Header () {
     return(
     <div className="header">
-
+        <h1>Tickets Manager</h1>
     </div>  
     )
 

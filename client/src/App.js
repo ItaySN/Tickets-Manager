@@ -13,6 +13,7 @@ function App() {
   const [countHiddenTickets, setCountHiddenTickets] = useState(0);
   const [reset, setReset] = useState(0);
   
+  
 
 const getAllTickets = async () => {
   try{
@@ -69,24 +70,47 @@ const getAllTickets = async () => {
   }
 
 
+  // function sortByDate(){
+  //   let temp;
+  //   let tempTickets = tickets;
+  //   for(let i=0;i<tempTickets.length-1;i++)
+  //   {
+  //     for(let j=i+1;j<tempTickets.length;j++)
+  //     {
+  //       if(tempTickets[i].creationTime < tempTickets[j].creationTime)
+  //       {
+  //         temp = tempTickets[i];
+  //         tempTickets[i] = tempTickets[j];
+  //         tempTickets[j] = temp;
+  //       }
+  //     }
+  //   }
+  //   setTickets(tempTickets);
+  // }
 
   return (
-    <main>
+    <div>
       <Header />
-        <div> {countHiddenTickets>0 && 
-         <>
-         <p id="hideTicketsCounter">{countHiddenTickets}</p>
+        <div className="dataOfTickets"> 
+        <span>Available Tickets: {200-countHiddenTickets}</span>
+        {countHiddenTickets>0 && 
+        <>
+        <p>
+          Hidden Tickets:<span id="hideTicketsCounter">{countHiddenTickets}</span>
+         </p>
          {<button id="restoreHideTickets" onClick={restore}>Restore</button>}
          </>
         }
       </div>
       <SearchText searchText ={searchText} setSearchText={setSearchText} />
+      <div className="main">
       {tickets.map((ticket,index) => 
       <Ticket key={index} ticket={ticket} countHiddenTickets={countHiddenTickets} counterHide={counterHide} reset={reset} doneTicket={doneTicket} unDoneTicket={unDoneTicket} />
       )}
+      </div>
       
 
-    </main>
+    </div>
   );
 }
 
