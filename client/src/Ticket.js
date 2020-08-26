@@ -1,17 +1,36 @@
 import React, { useState, useEffect } from 'react';
+import './ticket.css'
 
-function Ticket(props) {
+  
+const [classTicket,setClassTicket] = useState('ticket');
+
+  function displayDate (creationTime) {
+
+
+  }
+
+
+
+  function hideTicket (e) {
+   setClassTicket("hidden-ticket");
+   counterHide();
+  }
+  
+  // useEffect(() => {
+  //   if(!hidden){
+  //     props.countHiddenTickets +=1;
+  //   }
+  // },[hidden]);
+  
   return (
 
     <div>
-      {props.tickets.map((ticket) => (
-        <div>
-          <h5>
-            title :
+        <div className={classTicket}>
+          <h5>     
             {ticket.title}
           </h5>
           <p>
-            content:
+            
             {ticket.content}
           </p>
           <p>
@@ -19,8 +38,9 @@ function Ticket(props) {
             {' '}
             {ticket.userEmail}
           </p>
+          <p>{ticket.labels && ticket.labels.map((label) => <span className="label">{label}</span>)}</p>
+          <button className="hideTicketButton" onClick={hideTicket}> hide me </button>
         </div>
-      ))}
     </div>
 
   );
