@@ -37,11 +37,22 @@ function App() {
       {/* <SearchText /> */}
       {/* <Ticket ticketTitle={tickets} /> */}
       <Header />
+        <div className="counter"> {countHiddenTickets>0 && 
+         <>
+         <p>{countHiddenTickets}</p>
+         <button onClick={restore}>Restore</button>
+         </>
+        }
+      </div>
       <SearchText searchText ={searchText} setSearchText={setSearchText} />
-      <Ticket tickets={tickets} countHiddenTickets={countHiddenTickets} setCountHiddenTickets={setCountHiddenTickets} />
+      {tickets.map((ticket,index) => 
+      <Ticket key={index} ticket={ticket} countHiddenTickets={countHiddenTickets} setCountHiddenTickets={setCountHiddenTickets} />
+      )}
+      
 
     </main>
   );
 }
+
 
 export default App;
