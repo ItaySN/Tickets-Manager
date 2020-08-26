@@ -12,14 +12,21 @@ function App() {
   const [searchText ,setSearchText] = useState('');
   const [countHiddenTickets, setCountHiddenTickets] = useState(0);
   const [reset, setReset] = useState(0);
+  
+
+const getAllTickets = async () => {
+  try{
+    const res = await axios.get('api/tickets');
+    setTickets(res.data);
+    console.log(res.data);
+  }
+  catch(e){
+    console.log(e);
+  }
+}
 
   useEffect(() => {
-    const loadAllTickets = async () => {
-      const list = await axios.get('/api/tickets');
-      setTickets(list.data);
-      console.log(list.data);
-    };
-    loadAllTickets();
+    getAllTickets();
   }, []);
 
   useEffect(() => {
@@ -31,7 +38,6 @@ function App() {
     search();
   }, [searchText]);
 
- 
   function restore(){
        setReset(reset+1)
        setCountHiddenTickets(0);
@@ -40,12 +46,29 @@ function App() {
   const counterHide = () => {
     setCountHiddenTickets(countHiddenTickets+1);
   }
-  
-  
+
+  const doneTicket = async (ticketId) => {
+    try{
+      const done = await axios.post(`/api/tickets/${ticketId}/done`);
+      getAllTickets();
+      console.log(tickets);
+
+    }catch(e){
+      console.log(e)
+    }
+  }
+  const unDoneTicket = async (ticketId) => {
+    try{
+      const undone = await axios.post(`/api/tickets/${ticketId}/undone`);
+      getAllTickets();
+      console.log(tickets);
+
+    }catch(e){
+      console.log(e)
+    }
+  }
 
 
-
-  
 
   return (
     <main>
@@ -59,7 +82,7 @@ function App() {
       </div>
       <SearchText searchText ={searchText} setSearchText={setSearchText} />
       {tickets.map((ticket,index) => 
-      <Ticket key={index} ticket={ticket} countHiddenTickets={countHiddenTickets} counterHide={counterHide} reset={reset} />
+      <Ticket key={index} ticket={ticket} countHiddenTickets={countHiddenTickets} counterHide={counterHide} reset={reset} doneTicket={doneTicket} unDoneTicket={unDoneTicket} />
       )}
       
 
