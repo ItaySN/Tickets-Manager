@@ -8,7 +8,7 @@ body{
     text-align: center;
     justify-content: center;
     align-content: center;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 #hideTicketsCounter{ 
  padding: 5px;
@@ -47,4 +47,23 @@ button{
   height: 50px;
   width: 70px;
   margin-bottom: 5px;
+}
+.sortedButton{
+  height: 50px;
+  width: 120px;
+  margin-bottom: 5px;
+}
+.sortedP{
+  text-align: center;
+}
+.actionsDiv{
+  flex-direction: row;
+  margin: 5px;
+  justify-content: center;
+  border: 2px solid rgb(37, 18, 182);
+  border-radius: 35px;
+  margin: 20px 40px 20px 40px;
+  background-color: white;
+  padding: 10px;
+  box-shadow: 8px 10px #075663;
 }
