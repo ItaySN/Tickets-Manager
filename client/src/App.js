@@ -63,22 +63,7 @@ const getAllTickets = async () => {
     }catch(e){
       console.log(e)
     }
-  }
-  // const sortByDate = () => {
-  //       let sortedByDateArray=[];
-  //       let tempTickets = []
-  //       if(!sortedByDate)
-  //       {
-  //         sortedByDateArray = tempTickets.slice().sort((a, b) => b.creationTime - a.creationTime)
-  //         setSortedByDate(false)
-  //         setTickets(sortedByDateArray);
-  //       }
-  //       else{
-  //         setSortedByDate(true);
-  //         setTickets(tickets);
-  //       }
-  //   }
-    
+  }   
     function sortByDate () {
         let sortedTickets = tickets.slice().sort((a, b) => a.creationTime - b.creationTime);
         setSortedByDate(true);
@@ -90,29 +75,6 @@ const getAllTickets = async () => {
       debugger;
       getAllTickets();
     }
-
-    // useEffect(() => {
-      
-    // },[sortByDate])
-
-  // function sortByDate(){
-  //   let temp;
-  //   let tempTickets = tickets;
-  //   for(let i=0;i<tempTickets.length-1;i++)
-  //   {
-  //     for(let j=i+1;j<tempTickets.length;j++)
-  //     {
-  //       if(tempTickets[i].creationTime < tempTickets[j].creationTime)
-  //       {
-  //         temp = tempTickets[i];
-  //         tempTickets[i] = tempTickets[j];
-  //         tempTickets[j] = temp;
-  //       }
-  //     }
-  //   }
-  //   setTickets(tempTickets);
-  // }
-
   return (
     <div>
       <Header />
