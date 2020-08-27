@@ -65,7 +65,7 @@ Use a popular style guide - Airbnb
 * Git usage: commit messages, and overall git usage flow
 
 The GIF of my app:
-(./readme-files/ui-testing-recording.gif)
+![Task](./readme-files/ui-testing-recording.gif)
 
 
 Link for my Glitch:
