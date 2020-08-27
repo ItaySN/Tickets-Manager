@@ -20,7 +20,7 @@ app.get('/api/tickets/', async (req, res) => {
   }
 });
 
-app.post('/api/tickets/:ticketId/done/', async (req, res) => {
+app.post('/api/tickets/:ticketId/done', async (req, res) => {
   const data = await fs.readFile('./data.json');
   let ticketsJson = JSON.parse(data);
   try {
@@ -32,13 +32,13 @@ app.post('/api/tickets/:ticketId/done/', async (req, res) => {
     });
     ticketsJson = JSON.stringify(tickectMap);
     await fs.writeFile('./data.json', ticketsJson);
-    res.send(`ticket ${req.params.ticketId} has done`);
+    res.send({ updated: true });
   } catch (e) {
     res.send(`You got an error ${e.message}`);
   }
 });
 
-app.post('/api/tickets/:ticketId/undone/', async (req, res) => {
+app.post('/api/tickets/:ticketId/undone', async (req, res) => {
   const data = await fs.readFile('./data.json');
   let ticketsJson = JSON.parse(data);
   try {
@@ -50,7 +50,7 @@ app.post('/api/tickets/:ticketId/undone/', async (req, res) => {
     });
     ticketsJson = JSON.stringify(tickectMap);
     await fs.writeFile('./data.json', ticketsJson);
-    res.send(`ticket ${req.params.ticketId} has undone`);
+    res.send({ updated: true });
   } catch (e) {
     res.send(`You got an error ${e.message}`);
   }

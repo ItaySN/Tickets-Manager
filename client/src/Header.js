@@ -8,7 +8,5 @@ function Header () {
         <h1>Tickets Manager</h1>
     </div>  
     )
-
-
 }
 export default Header;
