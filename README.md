@@ -63,3 +63,10 @@ Use a popular style guide - Airbnb
 * Visual creativity, use css to make this app look awesome 💅🏿
 * Code quality: Variable naming, meaningful comments, logic separation into functions
 * Git usage: commit messages, and overall git usage flow
+
+The GIF of my app:
+(./readme-files/ui-testing-recording.gif)
+
+
+Link for my Glitch:
+https://ticket-manager-.glitch.me
